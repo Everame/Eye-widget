@@ -8,13 +8,13 @@ export default class startPage extends Component {
   render() {
     return (
       <div className='page'>
-          <HeaderStartMenu url={this.props.url+"?gender="} next={this.props.next}/>
+          <HeaderStartMenu url={""} next={this.props.next}/>
           <img src={MainPic} alt="Start picture" />
           <h2>Let's find your perfect pair!</h2>
           <p className="description">
             Take the quiz to easily discover your perfect fit from thousands of styles
           </p>
-          <Button url={this.props.url+"?gender="} text="Start Now" next={this.props.next} action="nextLink"/>
+          <Button url={""} text="Start Now" next={this.props.next} action="nextLink"/>
       </div>
     )
   }

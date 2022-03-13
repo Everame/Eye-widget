@@ -29,6 +29,11 @@ h3{
   height: 638px;
 }
 
+.eyeWidget{
+  height: 100%;
+  width: 100%;
+}
+
 
 .menuBtn{
   padding: 24px;

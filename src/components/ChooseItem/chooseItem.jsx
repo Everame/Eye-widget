@@ -3,7 +3,7 @@ import "./chooseItem.scss";
 
 function chooseItem(props) {
   return (
-    <a href={props.url} className="chooseItem" id='nextLink' onClick={props.next}>
+    <a href={props.url} className="chooseItem" id='nextLink' data-value={props.value} onClick={props.next}>
         <div className="itemContent">
             <div className="itemIcon">
                 <img src={props.icon} alt="Icon" />

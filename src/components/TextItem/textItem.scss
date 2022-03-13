@@ -1,31 +1,27 @@
-.chooseItem{
+.textItem{
     text-decoration: none;
     background: #FFFFFF;
     border: 1px solid rgba(231, 235, 237, 0.80141);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
     border-radius: 14px;
     margin-bottom: 14px;
+    flex: 1;
+    width: 70%;
     .itemContent{
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        width: 274px;
-        height: 138px;
-        .itemIcon{
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            flex:1;
-        }
+        align-items: center;
+        width: 100%;
+        height: 100%;
         .itemText{
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             width: 100%;
-            flex:1;
+            height: 100%;
             .itemTitle{
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
                 justify-content: center;
                 font-family: 'Open Sans';
                 font-style: normal;
