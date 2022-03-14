@@ -37,3 +37,42 @@
         }
     }
 }
+
+.sliderItem{
+    text-decoration: none;
+    background: #FFFFFF;
+    border: 1px solid rgba(231, 235, 237, 0.80141);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    width: 100%;
+    flex-shrink: 0;
+    .itemContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .itemIcon{
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex:2;
+        }
+        .itemText{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            flex:1;
+            .itemTitle{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 8px;
+                color: #425A60;
+            }
+        }
+    }
+}

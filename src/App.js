@@ -3,6 +3,11 @@ import StartPage from "./pages/StartPage/startPage";
 import FirstPage from "./pages/FirstPage/firstPage";
 import SecondPage from "./pages/SecondPage/secondPage";
 import ThirdPage from "./pages/ThirdPage/thirdPage";
+import FourPage from "./pages/FourPage/fourPage";
+import FifthPage from "./pages/FifthPage/fifthPage";
+import SixthPage from "./pages/SixthPage/sixthPage";
+import SeventhPage from "./pages/SeventhPage/seventhPage";
+import EighthPage from "./pages/EighthPage/eighthPage";
 
 function App(props) {
 
@@ -54,6 +59,7 @@ function App(props) {
   function skip(e){
     e.preventDefault();
     urls.push("");
+    chooses.push("");
     setPage(page + 1);
   }
 
@@ -87,6 +93,46 @@ function App(props) {
       return (
         <div className="eyeWidget">
           <ThirdPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+        </div>
+      );
+    }
+
+    case 4:{
+      return (
+        <div className="eyeWidget">
+          <FourPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+        </div>
+      );
+    }
+
+    case 5:{
+      return (
+        <div className="eyeWidget">
+          <FifthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[1]}/>
+        </div>
+      );
+    }
+
+    case 6:{
+      return (
+        <div className="eyeWidget">
+          <SixthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[0]}/>
+        </div>
+      );
+    }
+
+    case 7:{
+      return (
+        <div className="eyeWidget">
+          <SeventhPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+        </div>
+      );
+    }
+
+    case 8:{
+      return (
+        <div className="eyeWidget">
+          <EighthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
         </div>
       );
     }

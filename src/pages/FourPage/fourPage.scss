@@ -1,0 +1,77 @@
+div.four{
+    h3{
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 29px;
+        color: #0F0F0F;
+        margin-bottom: 31px !important;
+    }
+    .infoImg{
+        margin-bottom: 35px !important;
+    }
+    .itemsContainer{
+        display: flex;
+        width: 100%;
+        height: 35%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .chooseTextItemDouble{
+            text-decoration: none;
+            background: #FFFFFF;
+            border: 1px solid rgba(231, 235, 237, 0.80141);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+            border-radius: 14px;
+            margin-bottom: 14px;
+            flex: 1;
+            width: 80%;
+            .itemContent{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                .itemText{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    height: 100%;
+                    flex:1;
+                    .itemTitle{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 8px;
+                        color: #425A60;
+                        margin-left: 20px;
+                    }
+                }
+                .itemTextDescr{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    height: 100%;
+                    flex:1;
+                    .itemDescr{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 18px;
+                        line-height: 8px;
+                        color: #0F0F0F;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

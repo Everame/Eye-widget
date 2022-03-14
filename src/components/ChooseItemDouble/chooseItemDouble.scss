@@ -1,0 +1,41 @@
+.chooseItemDouble{
+    text-decoration: none;
+    background: #FFFFFF;
+    border: 1px solid rgba(231, 235, 237, 0.80141);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    margin-bottom: 14px;
+    flex: 1;
+    width: 80%;
+    .itemContent{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        .itemIcon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex:1;
+        }
+        .itemText{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            padding-left: 18px;
+            flex:2;
+            .itemTitle{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 8px;
+                color: #425A60;
+            }
+        }
+    }
+}
