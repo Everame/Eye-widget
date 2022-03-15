@@ -14,7 +14,7 @@ export default class startPage extends Component {
           <p className="description">
             Take the quiz to easily discover your perfect fit from thousands of styles
           </p>
-          <Button url={""} text="Start Now" next={this.props.next} action="nextLink"/>
+          <Button url={""} value={null} text="Start Now" next={this.props.next} action="nextLink"/>
       </div>
     )
   }

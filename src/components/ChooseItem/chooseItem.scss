@@ -38,7 +38,7 @@
     }
 }
 
-.sliderItem{
+.imgTextItem{
     text-decoration: none;
     background: #FFFFFF;
     border: 1px solid rgba(231, 235, 237, 0.80141);
@@ -46,6 +46,8 @@
     border-radius: 14px;
     width: 100%;
     flex-shrink: 0;
+    z-index: 90;
+    position: relative;
     .itemContent{
         display: flex;
         flex-direction: column;
@@ -55,24 +57,67 @@
             align-items: flex-end;
             justify-content: center;
             flex:2;
+            img{
+                pointer-events: none;
+            }
         }
         .itemText{
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             width: 100%;
             flex:1;
             .itemTitle{
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
                 justify-content: center;
                 font-family: 'Open Sans';
                 font-style: normal;
                 font-weight: 600;
                 font-size: 18px;
-                line-height: 8px;
+                line-height: 25px;
                 color: #425A60;
+                margin: 0 !important;
             }
         }
+    }
+    .check{
+        position: absolute;
+        right: -7px;
+        top: -7px;
+        opacity: 0;
+    }
+}
+
+.imgItem{
+    text-decoration: none;
+    background: #FFFFFF;
+    border: 1px solid rgba(231, 235, 237, 0.80141);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    width: 100%;
+    flex-shrink: 0;
+    z-index: 90;
+    position: relative;
+    .itemContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        .itemIcon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex:1;
+            img{
+                pointer-events: none;
+            }
+        }
+    }
+    .check{
+        position: absolute;
+        right: -7px;
+        top: -7px;
+        opacity: 0;
     }
 }

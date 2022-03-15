@@ -34,6 +34,19 @@ import Style09 from "./img/style_09.png";
 import Style10 from "./img/style_10.png";
 import Style11 from "./img/style_11.png";
 import Style12 from "./img/style_12.png";
+import Check from './img/check.svg';
+import Brand01 from "./img/brand_01.png";
+import Brand02 from "./img/brand_02.png";
+import Brand03 from "./img/brand_03.png";
+import Brand04 from "./img/brand_04.png";
+import Brand05 from "./img/brand_05.png";
+import Brand06 from "./img/brand_06.png";
+import Brand07 from "./img/brand_07.png";
+import Brand08 from "./img/brand_08.png";
+import Brand09 from "./img/brand_09.png";
+import Brand10 from "./img/brand_10.png";
+import Brand11 from "./img/brand_11.png";
+import Brand12 from "./img/brand_12.png";
 
 export{
     Logo,
@@ -71,5 +84,18 @@ export{
     Style09,
     Style10,
     Style11,
-    Style12
+    Style12,
+    Check,
+    Brand01,
+    Brand02,
+    Brand03,
+    Brand04,
+    Brand05,
+    Brand06,
+    Brand07,
+    Brand08,
+    Brand09,
+    Brand10,
+    Brand11,
+    Brand12,
 }

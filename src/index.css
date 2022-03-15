@@ -69,6 +69,10 @@ h3{
   letter-spacing: 0.6px;
 }
 
+.disabled{
+  background: #DEDEDE !important;
+}
+
 .skipLink{
   position: absolute;
   bottom: 30px;

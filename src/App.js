@@ -8,6 +8,8 @@ import FifthPage from "./pages/FifthPage/fifthPage";
 import SixthPage from "./pages/SixthPage/sixthPage";
 import SeventhPage from "./pages/SeventhPage/seventhPage";
 import EighthPage from "./pages/EighthPage/eighthPage";
+import NinthPage from "./pages/NinthPage/ninthPage";
+import TenthPage from "./pages/TenthPage/tenthPage";
 
 function App(props) {
 
@@ -36,6 +38,8 @@ function App(props) {
       chooses.push(value);
       setIsStart(true);
       href = isStart ? "&" + next.getAttribute('href') : "?" + next.getAttribute('href');
+    }else if(next.classList.contains('disabled')){
+      return false;
     }
     urls.push(href);
     window.history.pushState(null,null,myURL + href);
@@ -61,6 +65,13 @@ function App(props) {
     urls.push("");
     chooses.push("");
     setPage(page + 1);
+  }
+
+  function doubleSkip(e){
+    e.preventDefault();
+    urls.push("");
+    chooses.push("");
+    setPage(page + 2);
   }
 
 
@@ -133,6 +144,22 @@ function App(props) {
       return (
         <div className="eyeWidget">
           <EighthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+        </div>
+      );
+    }
+
+    case 9:{
+      return (
+        <div className="eyeWidget">
+          <NinthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} doubleSkip={doubleSkip}/>
+        </div>
+      );
+    }
+
+    case 10:{
+      return (
+        <div className="eyeWidget">
+          <TenthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
         </div>
       );
     }

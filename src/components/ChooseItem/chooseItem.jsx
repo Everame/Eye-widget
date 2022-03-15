@@ -1,13 +1,22 @@
 import React from 'react';
 import "./chooseItem.scss";
+import { Check } from '../../assets/icons';
 
 function chooseItem(props) {
-    if(props.type === "sliderItem"){
+
+    function resetContext(e){
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }
+
+    if(props.type === "imgTextItem"){
         return (
-            <a href={props.url} className={`sliderItem ${props.isSelected === true ? "check": ""}`} id='nextLink' data-value={props.value} onClick={props.next}>
-                <div className="itemContent">
-                    <div className="itemIcon">
-                        <img src={props.icon} alt="Icon" />
+            <a href={props.url} className={`imgTextItem ${props.isSelected === true ? "check": ""}`} id='nextLink' data-value={props.value} onClick={props.next} onTouchStart={props.touchStart} 
+            onTouchEnd={props.touchEnd} onTouchMove={props.touchMove} onMouseDown={props.touchStart} onMouseMove={props.touchMove} onMouseUp={props.touchEnd} >
+                <div className="itemContent" >
+                    <div className="itemIcon" >
+                        <img src={props.icon} alt="Icon" onContextMenu={resetContext}/>
                     </div>
                     <div className="itemText">
                         <p className="itemTitle">
@@ -15,6 +24,19 @@ function chooseItem(props) {
                         </p>
                     </div>
                 </div>
+                <img src={Check} alt="Check" className="check" />
+            </a>
+          )
+    }else if(props.type === "imgItem"){
+        return (
+            <a href={props.url} className={`imgItem ${props.isSelected === true ? "check": ""}`} id='nextLink' data-value={props.value} onClick={props.next} onTouchStart={props.touchStart} 
+            onTouchEnd={props.touchEnd} onTouchMove={props.touchMove} onMouseDown={props.touchStart} onMouseMove={props.touchMove} onMouseUp={props.touchEnd} >
+                <div className="itemContent" >
+                    <div className="itemIcon" >
+                        <img src={props.icon} alt="Icon" onContextMenu={resetContext}/>
+                    </div>
+                </div>
+                <img src={Check} alt="Check" className="check" />
             </a>
           )
     }else{
