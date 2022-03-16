@@ -1,10 +1,12 @@
-.page{
-    img{
+.start{
+    background: linear-gradient(180deg, #E8F0F2 0%, rgba(232, 240, 242, 0) 100%);
+    .startImg{
         max-width: 90%;
-        margin: 20px 0;
+        margin-bottom: 48px !important;
     }
     h2{
         max-width: 90%;
+        margin-bottom: 22px !important;
     }
     .description{
         font-family: "Open Sans";
@@ -14,6 +16,6 @@
         line-height: 26px;
         color: #3A4850;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 30px !important;
     }
 }

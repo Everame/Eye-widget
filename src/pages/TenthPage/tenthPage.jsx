@@ -3,7 +3,6 @@ import {Brand01, Brand02, Brand03, Brand04, Brand05, Brand06, Brand07, Brand08, 
 import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgressMenu";
 import Slider from '../../components/Slider/slider';
 import Button from '../../components/Button/button';
-import './tenthPage.scss';
 
 export default class tenthPage extends Component {
     constructor(props){
@@ -55,11 +54,11 @@ export default class tenthPage extends Component {
           {icon: Brand09, value: "tory_burch"},
           {icon: Brand12, value: "burberry"}];  
     return (
-        <div className='page tenth'>
+        <div className={`page sliderPage ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
             <HeaderProgressMenu page={10} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
             <div className="titlesPage">
                 <h3>Choose your favorite brands</h3>
-                <h4>You can pick more than one.</h4>
+                <h4 style={{margin: "0 0 1px 0"}}>You can pick more than one.</h4>
             </div>
             <Slider items={items} select={this.select.bind(this)} type='imgItem'/>
             <Button url={"brand="+this.state.valuesStr} value={this.state.valuesStr} text="Continue" isDisabled={this.state.isDisabled} next={this.props.next} action="arrSend" />

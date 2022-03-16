@@ -7,7 +7,7 @@ import './secondPage.scss';
 export default class secondPage extends Component {
   render() {
     return (
-        <div className='page'>
+        <div className={`page second ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
             <HeaderProgressMenu page={2} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
             <h3>What type of glasses are you looking for?</h3>
             {this.props.prevValue === "5" ?

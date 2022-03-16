@@ -1,19 +1,11 @@
-div.fivth{
+div.seventh{
     h3{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 20px;
-        line-height: 29px;
-        color: #0F0F0F;
-        margin-bottom: 24px !important;
+        width: 60%;
     }
     .itemsContainer{
-        display: flex;
-        width: 100%;
-        height: 50%;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        height: 50% ;
+        .chooseTextItem{
+            width: 90%;
+        }
     }
 }

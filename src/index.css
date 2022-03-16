@@ -1,7 +1,129 @@
+@keyframes vibration {
+  0%{
+    transform: translateX(-2px);
+    -webkit-transform: translateX(-2px);
+  }
+  1%{
+    transform: translateX(2px);
+    -webkit-transform: translateX(2px);
+  }
+  2%{
+    transform: translateX(-2px);
+    -webkit-transform: translateX(-2px);
+  }
+  3%{
+    transform: translateX(2px);
+    -webkit-transform: translateX(2px);
+  }
+  4%{
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+  }
+  10%{
+    transform: rotateZ(-15deg);
+    -webkit-transform: rotateZ(-15deg);
+  }
+  15%{
+    transform: rotateZ(15deg);
+    -webkit-transform: rotateZ(15deg);
+  }
+  20%{
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+  }
+}
+
+@keyframes clocks {
+  0%{
+    transform: rotateZ(-25deg);
+    -webkit-transform: rotateZ(-25deg);
+  }
+  50%{
+    transform: rotateZ(40deg);
+    -webkit-transform: rotateZ(40deg);
+  }
+  100%{
+    transform: rotateZ(-25deg);
+    -webkit-transform: rotateZ(-25deg);
+  }
+}
+
+@keyframes fadeLeft {
+  0%{
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+  90%{
+    transform: translateX(-5%);
+    -webkit-transform: translateX(-5%);
+  }
+  100%{
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@keyframes fadeRight {
+  0%{
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+  90%{
+    transform: translateX(5%);
+    -webkit-transform: translateX(5%);
+  }
+  100%{
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+  }
+}
+
+@keyframes loading {
+  0%{
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+  77%{
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
+@keyframes loadingUp {
+  0%{
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+  25%{
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+  75%{
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p,h2,h3{
+  margin: 0 !important;
 }
 
 h2{
@@ -12,7 +134,18 @@ h2{
 }
 
 h3{
-  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 29px;
+  color: #0F0F0F;
+  margin-bottom: 24px !important;
+  width: 80%;
 }
 
 #root{
@@ -20,13 +153,46 @@ h3{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
 }
 
 #glasses-quiz-widget{
   position: relative;
   width: 375px;
   height: 638px;
+  overflow: hidden;
+}
+
+.itemsContainer{
+  display: flex;
+  width: 100%;
+  height: 45%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderPage .headerMenu{
+  margin-bottom: 30px;
+}
+.sliderPage .titlesPage{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.sliderPage h3{
+  width: 100%;
+  margin: 0 0 10px 0 !important;
+}
+.sliderPage h4{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #697580;
+  margin: 0 0 13px 0;
 }
 
 .eyeWidget{
@@ -36,7 +202,13 @@ h3{
 
 
 .menuBtn{
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
   padding: 24px;
+}
+
+.menuBtn:hover{
+  transform: scale(1.16);
 }
 
 .page{
@@ -46,7 +218,7 @@ h3{
   align-items: center;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #E8F0F2 0%, rgba(232, 240, 242, 0) 100%);
+  background: #F7F8F9;
 }
 
 .page img{
@@ -67,10 +239,22 @@ h3{
   padding: 13px 48px;
   color: #fff;
   letter-spacing: 0.6px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+.funBtn:hover{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
 }
 
 .disabled{
   background: #DEDEDE !important;
+}
+
+.disabled:hover{
+  transform: scale(1) !important;
+  -webkit-transform: scale(1);
 }
 
 .skipLink{
@@ -82,6 +266,45 @@ h3{
   font-size: 16px;
   line-height: 22px;
   color: #3A4850;
+}
+
+.fadeLeft{
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  animation: fadeLeft 1s ease;
+  -webkit-animation: fadeLeft 1s ease;
+}
+
+.fadeRight{
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  animation: fadeRight 1s ease;
+  -webkit-animation: fadeRight 1s ease;
+}
+
+.loadLayer{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 66px);
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  bottom: 0;
+  background: #F7F8F9;
+  animation: loading 3s ease;
+  -webkit-animation: loading 3s ease;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+}
+
+.fadeUp{
+  animation: loadingUp 4s ease !important;
+  -webkit-animation: loadingUp 4s ease !important;
+}
+
+.loadLayer .alertImg{
+  margin: 100px 0 40px 0;
 }
 
 code {

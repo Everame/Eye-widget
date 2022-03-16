@@ -6,7 +6,7 @@ import './seventhPage.scss';
 export default class seventhPage extends Component {
     render() {
         return (
-            <div className='page fivth'>
+            <div className={`page seventh ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
                 <HeaderProgressMenu page={7} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
                 <h3>How would you define your facial features?</h3>
                 <div className="itemsContainer">

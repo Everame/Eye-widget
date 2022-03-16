@@ -10,6 +10,7 @@ import SeventhPage from "./pages/SeventhPage/seventhPage";
 import EighthPage from "./pages/EighthPage/eighthPage";
 import NinthPage from "./pages/NinthPage/ninthPage";
 import TenthPage from "./pages/TenthPage/tenthPage";
+import FinishPage from "./pages/FinishPage/finishPage";
 
 function App(props) {
 
@@ -17,12 +18,23 @@ function App(props) {
   const[chooses, setChooses] = useState([]);
   const[urls, setUrls] = useState([]);
   const[isStart, setIsStart] = useState(false);
+  const[animationID, setAnimationID] = useState("fadeLeft");
 
+  function onLoadReset(){
+    window.history.replaceState(null,null,props.url);
+    setChooses([]);
+    setUrls([]);
+    setPage(0);
+  }
+  
   function reset(e){
     e.preventDefault();
     const reset = document.querySelector('.resetLink');
-    const href = reset.getAttribute('href');
-    window.history.pushState(null,null,href);
+    var href = "";
+    if(reset !== null){
+      href = reset.getAttribute('href');
+    }
+    window.history.replaceState(null,null,href);
     setChooses([]);
     setUrls([]);
     setPage(0);
@@ -44,6 +56,7 @@ function App(props) {
     urls.push(href);
     window.history.pushState(null,null,myURL + href);
     setPage(page + 1);
+    setAnimationID("fadeLeft");
   }
 
   function prev(e){
@@ -58,6 +71,7 @@ function App(props) {
     }
     window.history.replaceState(null,null,props.url + fullUrl);
     setPage(page - 1);
+    setAnimationID("fadeRight");
   }
 
   function skip(e){
@@ -74,12 +88,17 @@ function App(props) {
     setPage(page + 2);
   }
 
+  function send(e){
+    e.preventDefault();
+    console.log("URL: " + document.location.href);
+  }
+
 
   switch (page) {
     case 0:{
       return (
-        <div className="eyeWidget">
-          <StartPage url={props.url} next={next}/>
+        <div className="eyeWidget" onLoad={onLoadReset}>
+          <StartPage url={props.url} next={next} reset={reset} animation={animationID}/>
         </div>
       );
     }
@@ -87,7 +106,7 @@ function App(props) {
     case 1:{
       return (
         <div className="eyeWidget">
-          <FirstPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+          <FirstPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} animation={animationID}/>
         </div>
       );
     }
@@ -95,7 +114,7 @@ function App(props) {
     case 2:{
       return (
         <div className="eyeWidget">
-          <SecondPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[0]}/>
+          <SecondPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[0]} animation={animationID}/>
         </div>
       );
     }
@@ -103,7 +122,7 @@ function App(props) {
     case 3:{
       return (
         <div className="eyeWidget">
-          <ThirdPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+          <ThirdPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} animation={animationID}/>
         </div>
       );
     }
@@ -111,7 +130,7 @@ function App(props) {
     case 4:{
       return (
         <div className="eyeWidget">
-          <FourPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+          <FourPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} animation={animationID}/>
         </div>
       );
     }
@@ -119,7 +138,7 @@ function App(props) {
     case 5:{
       return (
         <div className="eyeWidget">
-          <FifthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[1]}/>
+          <FifthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[1]} animation={animationID}/>
         </div>
       );
     }
@@ -127,7 +146,7 @@ function App(props) {
     case 6:{
       return (
         <div className="eyeWidget">
-          <SixthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[0]}/>
+          <SixthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} prevValue={chooses[0]} animation={animationID}/>
         </div>
       );
     }
@@ -135,7 +154,7 @@ function App(props) {
     case 7:{
       return (
         <div className="eyeWidget">
-          <SeventhPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+          <SeventhPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} animation={animationID}/>
         </div>
       );
     }
@@ -143,7 +162,7 @@ function App(props) {
     case 8:{
       return (
         <div className="eyeWidget">
-          <EighthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+          <EighthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} animation={animationID}/>
         </div>
       );
     }
@@ -151,7 +170,7 @@ function App(props) {
     case 9:{
       return (
         <div className="eyeWidget">
-          <NinthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} doubleSkip={doubleSkip}/>
+          <NinthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} doubleSkip={doubleSkip} animation={animationID}/>
         </div>
       );
     }
@@ -159,15 +178,23 @@ function App(props) {
     case 10:{
       return (
         <div className="eyeWidget">
-          <TenthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip}/>
+          <TenthPage url={props.url} next={next} prev={prev} reset={reset} skip={skip} animation={animationID}/>
+        </div>
+      );
+    }
+
+    case 11:{
+      return (
+        <div className="eyeWidget">
+          <FinishPage url={props.url} send={send} reset={reset} animation={animationID}/>
         </div>
       );
     }
   
     default:{
       return (
-        <div className="eyeWidget">
-          <StartPage url={props.url} next={next}/>
+        <div className="eyeWidget" onLoad={onLoadReset}>
+          <StartPage url={props.url} next={next} reset={reset} animation={animationID}/>
         </div>
       );
     }

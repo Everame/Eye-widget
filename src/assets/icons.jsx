@@ -35,6 +35,8 @@ import Style10 from "./img/style_10.png";
 import Style11 from "./img/style_11.png";
 import Style12 from "./img/style_12.png";
 import Check from './img/check.svg';
+import GiveIcon from './img/give_icon.svg';
+import Like from './img/like.svg';
 import Brand01 from "./img/brand_01.png";
 import Brand02 from "./img/brand_02.png";
 import Brand03 from "./img/brand_03.png";
@@ -85,7 +87,6 @@ export{
     Style10,
     Style11,
     Style12,
-    Check,
     Brand01,
     Brand02,
     Brand03,
@@ -98,4 +99,7 @@ export{
     Brand10,
     Brand11,
     Brand12,
+    Check,
+    GiveIcon,
+    Like
 }

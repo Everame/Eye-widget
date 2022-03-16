@@ -6,7 +6,7 @@ import './ninthPage.scss';
 export default class ninthPage extends Component {
     render() {
         return (
-            <div className='page'>
+            <div className={`page ninth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
                 <HeaderProgressMenu page={9} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
                 <h3>Are you looking for any particular eyewear brands?</h3>
                 <div className="itemsContainer">

@@ -10,14 +10,12 @@ function slider(props) {
         animationID = 0;
 
     function touchStart(event){
-        const sliderItem = document.querySelector('.sliderItem');
         const sliderLayer = document.querySelector('.sliderLayer');
         startPos = getPositionX(event);
         isDragging = true;
 
         sliderLayer.classList.add('grabbing');
         sliderLayer.classList.remove('grab');
-        sliderItem.style.zIndex = 70;
     }
 
     function touchEnd(){
@@ -76,8 +74,13 @@ function slider(props) {
     <div className="sliderWrapper" onTouchStart={touchStart} onTouchEnd={touchEnd} onTouchMove={touchMove} onMouseDown={touchStart} onMouseMove={touchMove} onMouseUp={touchEnd} onMouseLeave={touchEnd}>
         <div className="sliderRow">
             {
-                props.items.map((item) => {
-                    return <ChooseItem url={item.value} value={item.value} next={props.select} icon={item.icon} title={item.title} type={props.type} touchStart={touchStart} touchEnd={touchEnd} touchMove={touchMove}/>
+                props.items.map((item, index) => {
+                    index += 1;
+                    return (
+                        <React.Fragment key={index}>
+                            <ChooseItem url={item.value} value={item.value} next={props.select} icon={item.icon} title={item.title} type={props.type} touchStart={touchStart} touchEnd={touchEnd} touchMove={touchMove}/>
+                        </React.Fragment>
+                    )
                 })
             }
         </div>

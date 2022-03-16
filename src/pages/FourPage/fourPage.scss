@@ -1,20 +1,15 @@
 div.four{
     h3{
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 20px;
-        line-height: 29px;
-        color: #0F0F0F;
-        margin-bottom: 31px !important;
+        width: 60%;
     }
     .infoImg{
+        max-width: 80%;
         margin-bottom: 35px !important;
     }
     .itemsContainer{
         display: flex;
         width: 100%;
-        height: 35%;
+        height: 33%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -27,6 +22,12 @@ div.four{
             margin-bottom: 14px;
             flex: 1;
             width: 80%;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            &:hover{
+                transform: scale(1.07);
+                -webkit-transform: scale(1.07);
+            }
             .itemContent{
                 display: flex;
                 justify-content: center;
@@ -49,7 +50,7 @@ div.four{
                         font-size: 18px;
                         line-height: 8px;
                         color: #425A60;
-                        margin-left: 20px;
+                        margin: 16px 0 16px 20px !important;
                     }
                 }
                 .itemTextDescr{
@@ -68,10 +69,16 @@ div.four{
                         font-size: 18px;
                         line-height: 8px;
                         color: #0F0F0F;
-                        margin-right: 20px;
+                        margin: 16px 20px 16px 0px !important;
                     }
                 }
             }
         }
+    }
+}
+
+div.fourSecond{
+    h3{
+        width: 50%;
     }
 }

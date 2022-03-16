@@ -1,5 +1,5 @@
 import React from 'react';
-import {Logo, AngleRight} from '../../assets/icons';
+import {Logo, AngleRight, Close} from '../../assets/icons';
 import "./headerStart.scss";
 
 function headerStartMenu(props) {
@@ -10,8 +10,11 @@ function headerStartMenu(props) {
           <img src={Logo} alt="Logo" />  
         </div>
         <div className="rightBlock">
-          <a href={props.url} id="nextLink" onClick={props.next}><img src={AngleRight} alt="Next" className="menuBtn" /></a>
+          <a href={props.url} id={props.type === "start" ? "nextLink" : "resetLink"} onClick={props.type === "start" ? props.next : props.reset}><img src={props.type === "start" ? AngleRight : Close} alt="Next" className="menuBtn" /></a>
         </div>
+      </div>
+      <div className="progressBar" style={{display: `${props.type === "start" ? "none" : "block"}`}}>
+          <div className="innerBar" style={{width: `100%`}}></div>
       </div>  
     </div>
   )

@@ -3,7 +3,6 @@ import {Style01, Style02, Style03, Style04, Style05, Style06, Style07, Style08, 
 import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgressMenu";
 import Slider from '../../components/Slider/slider';
 import Button from '../../components/Button/button';
-import './eighthPage.scss';
 
 export default class eighthPage extends Component {
     constructor(props){
@@ -55,7 +54,7 @@ export default class eighthPage extends Component {
           {icon: Style09, value: "square", title: "Square"},
           {icon: Style12, value: "wrap", title: "Wrap"}];  
     return (
-        <div className='page eighth'>
+        <div className={`page sliderPage ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
             <HeaderProgressMenu page={8} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
             <div className="titlesPage">
                 <h3>Which frame style are you looking for?</h3>

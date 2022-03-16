@@ -7,7 +7,7 @@ function headerProgressMenu(props) {
     <div className="headerMenu">
       <div className="headerRow">
         <div className="leftBlock">
-          <a href="" className='prevLink' onClick={props.prev}><img src={AngleLeft} alt="Prev" className='menuBtn' /></a>  
+          <a href="/" className='prevLink' onClick={props.prev}><img src={AngleLeft} alt="Prev" className='menuBtn' /></a>  
         </div>
         <div className="middleBlock">
             <p className="pageNum">{props.page}/10</p>
@@ -17,7 +17,7 @@ function headerProgressMenu(props) {
         </div>
       </div>  
       <div className="progressBar">
-          <div className="innerBar" style={{width: `${props.page * 9}%`}}></div>
+          <div className="innerBar" style={{width: `${props.page * 9.6}%`}}></div>
       </div>
     </div>
   )

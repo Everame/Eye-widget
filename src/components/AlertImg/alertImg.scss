@@ -1,0 +1,30 @@
+.alertImg{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: -9px -9px 16px #FFFFFF, 9px 9px 16px rgba(163, 177, 198, 0.325148);
+    background: #F7F8F9;
+    width: 132px;
+    height: 132px;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    img{
+        position: absolute;
+        height: 60%;
+        width: 60%;
+        left: calc(50% - (60% / 1.9));
+        top: calc(50% - (60% / 1.7));
+    }
+}
+
+.loading{
+    animation: clocks 2s ease infinite;
+    -webkit-animation: clocks 2s ease infinite;
+}
+
+.standart{
+    animation: vibration 5s ease 2s infinite;
+    -webkit-animation: vibration 5s ease 2s infinite;
+}

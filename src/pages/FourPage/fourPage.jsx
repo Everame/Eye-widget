@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgressMenu";
 import ChooseTextItem from '../../components/ChooseTextItem/chooseTextItem';
-import { Sizes} from '../../assets/icons';
+import AlertImg from '../../components/AlertImg/alertImg';
+import { Sizes, Like} from '../../assets/icons';
 import './fourPage.scss';
 
 export default class thirdPage extends Component {
@@ -19,7 +20,7 @@ export default class thirdPage extends Component {
     render() {
         if(this.state.isKnown === true){
             return (
-                <div className='page four'>
+                <div className={`page four ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} >
                     <HeaderProgressMenu page={4} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
                     <h3>What’s your current frame size?</h3>
                     <img src={Sizes} alt="Sizes" className='infoImg'/>
@@ -72,7 +73,7 @@ export default class thirdPage extends Component {
             )
         }else{
             return (
-               <div className='page'>
+               <div className={`page fourSecond`}>
                     <HeaderProgressMenu page={4} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
                     <h3>How wide would you say your face is?</h3>
                     <div className="itemsContainer">
@@ -81,6 +82,10 @@ export default class thirdPage extends Component {
                         <ChooseTextItem url={"frame_size=68"} value={68} next={this.props.next} title="Narrower Than Average"/>
                     </div>
                     <a href="" className="skipLink" onClick={this.props.skip}>I’m not sure</a>
+                    <div className="loadLayer fadeUp">
+                        <AlertImg icon={Like} animation="loading" />
+                        <h2>No worries, we’ve got you!</h2>
+                    </div>
                 </div>
             )
         }

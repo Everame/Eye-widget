@@ -1,0 +1,42 @@
+.finish{
+    .headerStartMenu{
+        margin-bottom: 50px !important;
+    }
+    .alertImg{
+        margin-bottom: 32px;
+    }
+    h2{
+        font-size: 20px;
+        max-width: 90%;
+        align-self: center;
+        text-align: center;
+        margin-bottom: 12px !important;
+    }
+    .description{
+        font-family: "Open Sans";
+        font-style: normal;
+        max-width: 80%;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 26px;
+        color: #3A4850;
+        text-align: center;
+        margin-bottom: 50px !important;
+    }
+    .disclaimer{
+        position: absolute;
+        bottom: 20px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        color: #5B6971;
+        max-width: 80%;
+        margin: 0 !important;
+    }
+    .funBtn{
+        padding: 13px 70px;
+    }
+}
