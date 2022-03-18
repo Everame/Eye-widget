@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './media.scss';
 import './assets/fonts/FontAwesome/css/all.min.css';
 import './assets/fonts/OpenSans/opensans.css';
 import './assets/fonts/Roboto/roboto.css';

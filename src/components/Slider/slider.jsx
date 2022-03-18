@@ -3,6 +3,7 @@ import ChooseItem from '../ChooseItem/chooseItem';
 import "./slider.scss";
 
 function slider(props) {
+
     let isDragging = false,
         startPos = 0,
         currentTranslate = 0,
@@ -19,16 +20,23 @@ function slider(props) {
     }
 
     function touchEnd(){
-        const sliderRow = document.querySelector('.sliderRow');
+        const sliderWrapper = document.querySelector('.sliderWrapper');
+        const sliderItem = document.querySelector('.sliderRow a');
         const sliderLayer = document.querySelector('.sliderLayer');
         isDragging = false;
         cancelAnimationFrame(animationID);
-        const lowLimit = (sliderRow.clientWidth - (sliderRow.clientWidth * 2) );
+        const sliderRowWidth = (sliderItem.clientWidth * 4) + 40;
+        var lowLimit = 0;
+        if(sliderRowWidth > sliderWrapper.clientWidth){
+            lowLimit = sliderWrapper.clientWidth - (sliderRowWidth + 20);
+        } else if(sliderRowWidth < sliderWrapper.clientWidth){
+            lowLimit = 0;
+        }
         if(currentTranslate > 0){
             currentTranslate = 0;
             setSliderPosition()
         }else if(currentTranslate <= lowLimit){
-            currentTranslate = lowLimit + 40;
+            currentTranslate = lowLimit;
             setSliderPosition()
         }
         prevTranslate = currentTranslate;
@@ -41,9 +49,16 @@ function slider(props) {
 
     function touchMove(event){
         if(isDragging){
+            const sliderWrapper = document.querySelector('.sliderWrapper');
             const sliderLayer = document.querySelector('.sliderLayer');
-            const sliderRow = document.querySelector('.sliderRow');
-            const lowLimit = (sliderRow.clientWidth - (sliderRow.clientWidth * 2) );
+            const sliderItem = document.querySelector('.sliderRow a');
+            const sliderRowWidth = (sliderItem.clientWidth * 4) + 40;
+            var lowLimit = 0;
+            if(sliderRowWidth > sliderWrapper.clientWidth){
+                lowLimit = sliderWrapper.clientWidth - (sliderRowWidth + 20);
+            } else if(sliderRowWidth < sliderWrapper.clientWidth){
+                lowLimit = 0;
+            }
             if(currentTranslate > (lowLimit - 10) && currentTranslate <= 10){
                 const currentPosition = getPositionX(event);
                 currentTranslate = prevTranslate + currentPosition - startPos;
