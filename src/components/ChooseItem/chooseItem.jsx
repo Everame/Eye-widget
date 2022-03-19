@@ -41,7 +41,7 @@ function chooseItem(props) {
           )
     }else{
         return (
-            <a href={props.url} className={`chooseItem`} id='nextLink' data-value={props.value} onClick={props.next}>
+            <a href={props.url} className={`chooseItem`} id='nextLink' data-value={props.value} onClick={props.next} data-testid={props.testID}>
                 <div className="itemContent">
                     <div className="itemIcon">
                         <img src={props.icon} alt="Icon" />

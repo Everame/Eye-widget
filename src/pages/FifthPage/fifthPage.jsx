@@ -9,7 +9,7 @@ export default class fifthPage extends Component {
     render() {
         if(this.props.prevValue === "210"){
             return (
-                <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
+                <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} data-testid="eyeDef">
                     <HeaderProgressMenu page={5} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
                     <h3>Would you like to protect your eyes from light emanating from screens?</h3>
                     <div className="itemsContainer">
@@ -20,7 +20,7 @@ export default class fifthPage extends Component {
             )
         }else{
             return (
-                <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`}>
+                <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} data-testid="sunDef">
                     <HeaderProgressMenu page={5} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
                     <h3>When you’re out and about, which shade of lenses do you prefer?</h3>
                     <div className="itemsContainer">
