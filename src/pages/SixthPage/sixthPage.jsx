@@ -4,6 +4,7 @@ import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgre
 import ChooseItemDouble from '../../components/ChooseItemDouble/chooseItemDouble';
 import './sixthPage.scss';
 
+//6 страница с выбором типа формы лица
 export default class sixthPage extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ export default class sixthPage extends Component {
             <h3>Every face shape has a perfect fit. What’s yours?</h3>
 
             <div className="itemsContainer">
+                {/*Изменение иконки элемента в зависимости от выбора на 1 странице*/}
                 <ChooseItemDouble  url={"face_shape=long"} value={"long"} next={this.props.next} icon={this.props.prevValue === "5" ? OvalWomen: this.props.prevValue === "4" ? OvalMen: FacesOval} title="I have a long face"/>
                 <ChooseItemDouble  url={"face_shape=round"} value={"round"} next={this.props.next} icon={this.props.prevValue === "5" ? RoundWomen: this.props.prevValue === "4" ? RoundMen: FacesRound} title="I have a round face"/>
                 <ChooseItemDouble  url={"face_shape=between"} value={"between"} next={this.props.next} icon={this.props.prevValue === "5" ? BetweenWomen: this.props.prevValue === "4" ? BetweenMen: FacesBoth} title="In between"/>

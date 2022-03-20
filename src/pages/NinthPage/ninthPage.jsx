@@ -3,6 +3,7 @@ import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgre
 import TextItem from '../../components/TextItem/textItem';
 import './ninthPage.scss';
 
+//9 страница с выбором необходимости заказа очков у известных брендов
 export default class ninthPage extends Component {
     render() {
         return (

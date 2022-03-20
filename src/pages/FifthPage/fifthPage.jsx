@@ -5,20 +5,10 @@ import ChooseItemDouble from '../../components/ChooseItemDouble/chooseItemDouble
 import { Dark, Light, Photochromic } from '../../assets/icons';
 import './fifthPage.scss';
 
+//5 страница с выбором покрытия линз очков
 export default class fifthPage extends Component {
     render() {
-        if(this.props.prevValue === "210"){
-            return (
-                <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} data-testid="eyeDef">
-                    <HeaderProgressMenu page={5} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
-                    <h3>Would you like to protect your eyes from light emanating from screens?</h3>
-                    <div className="itemsContainer">
-                        <ChooseTextItem url={"blue_light=true"} value={true} next={this.props.next} title="Yes"/>
-                        <ChooseTextItem url={"blue_light=false"} value={false} next={this.props.next} title="No"/>
-                    </div>
-                </div>
-            )
-        }else{
+        if(this.props.prevValue === "211"){ //Отображение страницы, если на 2 странице выбрали sunglasses
             return (
                 <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} data-testid="sunDef">
                     <HeaderProgressMenu page={5} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
@@ -27,6 +17,17 @@ export default class fifthPage extends Component {
                         <ChooseItemDouble url={"shade=dark"} value={"dark"} next={this.props.next} icon={Dark} title="Dark Shade"/>
                         <ChooseItemDouble  url={"shade=light "} value={"light"} next={this.props.next} icon={Light} title="Light Shade"/>
                         <ChooseItemDouble  url={"shade=transition"} value={"transition"} next={this.props.next} icon={Photochromic} title="Transitioning Shade"/> 
+                    </div>
+                </div>
+            )
+        }else{ //Отображение страницы, если на 2 странице выбрали eyeglasses
+            return (
+                <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} data-testid="eyeDef">
+                    <HeaderProgressMenu page={5} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>
+                    <h3>Would you like to protect your eyes from light emanating from screens?</h3>
+                    <div className="itemsContainer">
+                        <ChooseTextItem url={"blue_light=true"} value={true} next={this.props.next} title="Yes"/>
+                        <ChooseTextItem url={"blue_light=false"} value={false} next={this.props.next} title="No"/>
                     </div>
                 </div>
             )

@@ -4,42 +4,50 @@ import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgre
 import Slider from '../../components/Slider/slider';
 import Button from '../../components/Button/button';
 
+//8 страница с выбором дизайна очков
 export default class eighthPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isDisabled: true,
-            values: [],
-            valuesStr: ""
+            isDisabled: true, //Состояние работоспособности кнопки подтверждения выбора
+            values: [], //Массив со всем выбранными дизайнами
+            valuesStr: "" //Строка для отправки в массив всех выборов пользователя
         }
     }
 
+    //Функция выбора дизайна
     select(e){
         e.preventDefault();
         const current = e.currentTarget;
         const check = current.querySelector('.check');
         const currentValue = current.getAttribute('data-value');
-        var newValues = this.state.values;
-        const index = newValues.indexOf(currentValue);
-        if(current.classList.contains('selected')){
+        var newValues = this.state.values; //Копирование текущих значений массива с дизайнами
+        const index = newValues.indexOf(currentValue); // Индекс последнего выбранного элемента
+
+        //Проверка "Выбран ли элемент?"
+        if(current.classList.contains('selected')){ //Если выбран
             current.classList.remove('selected');
-            this.state.values.splice(index,1);
+            this.state.values.splice(index,1); //Удаление выбранного элемента из массива с выбранными дизайнами
             current.style.border = "1px solid rgba(231, 235, 237, 0.80141)";
             check.style.opacity = 0;
-        }else{
+        }else{ //Если не выбран
             current.classList.add('selected');
-            this.state.values.push(currentValue);
+            this.state.values.push(currentValue); //Добавление выбранного элемента в массив с выбранными дизайнами
             current.style.border = "3px solid #2196F3";
             check.style.opacity = 1;
         }
+
+        //Проверка количества выбранных элементов
         if(this.state.values.length === 0){
-            this.setState({isDisabled: true});
+            this.setState({isDisabled: true}); //Изменение работоспособности кнопки подтверждения выбора, если элементов 0
         }else{
-            this.setState({isDisabled: false});
+            this.setState({isDisabled: false}); //Изменение работоспособности кнопки подтверждения выбора, если элементов >0
         }
-        this.setState({valuesStr: this.state.values.join(",")});
+        this.setState({valuesStr: this.state.values.join(",")}); //Обновление строки для отправки в массив всех выборов пользователя
     }
   render() {
+
+    //Объект со всеми элементами слайдера
       const items = [
           {icon: Style01, value: "rectangle", title: "Rectangle"},
           {icon: Style04, value: "browline", title: "Browline"},

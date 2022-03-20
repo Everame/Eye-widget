@@ -5,6 +5,7 @@ import HeaderStartMenu from "../../components/HeaderStart/headerStartMenu";
 import AlertImg from '../../components/AlertImg/alertImg';
 import './finishPage.scss';
 
+//11 конечная страница с кнопкой отправки сформированного URL
 export default class finishPage extends Component {
   render() {
     return (

@@ -12,14 +12,16 @@ import NinthPage from "./pages/NinthPage/ninthPage";
 import TenthPage from "./pages/TenthPage/tenthPage";
 import FinishPage from "./pages/FinishPage/finishPage";
 
+//Основной компонент отвечающий за сбор информации со всех страниц и навигации по ним
 function App(props) {
 
-  const[page, setPage] = useState(0);
-  const[chooses, setChooses] = useState([]);
-  const[urls, setUrls] = useState([]);
-  const[isStart, setIsStart] = useState(false);
-  const[animationID, setAnimationID] = useState("fadeLeft");
+  const[page, setPage] = useState(0); //id начальной страницы
+  const[chooses, setChooses] = useState([]); //Массив с выборами всех страниц
+  const[urls, setUrls] = useState([]); //Массив с cформированными частями общего url
+  const[isStart, setIsStart] = useState(false); //Состояние запуска формы
+  const[animationID, setAnimationID] = useState("fadeLeft"); //Тип анимации страницы
 
+  //Функция сброса параметров при загрузке страницы
   function onLoadReset(){
     window.history.replaceState(null,null,props.url);
     setChooses([]);
@@ -27,6 +29,7 @@ function App(props) {
     setPage(0);
   }
   
+  //Функция сброса параметров по нажатии
   function reset(e){
     e.preventDefault();
     const reset = document.querySelector('.resetLink');
@@ -34,66 +37,79 @@ function App(props) {
     if(reset !== null){
       href = reset.getAttribute('href');
     }
-    window.history.replaceState(null,null,href);
+    window.history.replaceState(null,null,href); //Замена текущего значения URL на изначальный
     setChooses([]);
     setUrls([]);
     setPage(0);
   }
 
+  //Функция переключения экрана
   function next(e){
     e.preventDefault();
     const next = e.currentTarget;
     const value = next.getAttribute('data-value');
-    var myURL = document.location;
+    var myURL = document.location; //Считывание текущего URL
     var href = "";
+
+    //Проверка наличия значения выбора у кнопки
     if(value !== null){
-      chooses.push(value);
-      setIsStart(true);
-      href = isStart ? "&" + next.getAttribute('href') : "?" + next.getAttribute('href');
-    }else if(next.classList.contains('disabled')){
+      chooses.push(value); //Добавление текущего значения кнопки в массив всех выборов
+      setIsStart(true); //Обновление состояния запуска формы
+      href = isStart ? "&" + next.getAttribute('href') : "?" + next.getAttribute('href'); //Формирование url-части текущего значения
+    }else if(next.classList.contains('disabled')){ //если кнопка в состоянии disabled
       return false;
     }
-    urls.push(href);
-    window.history.pushState(null,null,myURL + href);
-    setPage(page + 1);
-    setAnimationID("fadeLeft");
+    urls.push(href); //Добавление текущей url-части в массив с cформированными частями общего url
+    window.history.pushState(null,null,myURL + href); //Добавление текущей url-части к общему URL-адресу
+    setPage(page + 1); //Вызов следующей страницы
+    setAnimationID("fadeLeft"); //Анимация, с которой вызвать следующую страницу
   }
 
+  //Функция возвращения предыдущего экрана
   function prev(e){
     e.preventDefault();
+    //Удаление из массивов предыдущих действий
     chooses.pop();
     urls.pop();
+
+    //Сборка полного URL из url-частей массива
     const fullUrl = urls.reduce(function(sum, current) {
       return sum + current;
     }, "");
+    //Проверка на возврат на начальный экран
     if(fullUrl === ""){
       setIsStart(false);
     }
-    window.history.replaceState(null,null,props.url + fullUrl);
-    setPage(page - 1);
-    setAnimationID("fadeRight");
+    window.history.replaceState(null,null,props.url + fullUrl); //Замена URL-адреса на предыдущий вариант
+    setPage(page - 1); //Возврат к предыдущему экрану
+    setAnimationID("fadeRight"); //Анимация, с которой вызвать предыдущую страницу
   }
 
+  //Функция пропуска выбора
   function skip(e){
     e.preventDefault();
-    urls.push("");
-    chooses.push("");
-    setPage(page + 1);
+    urls.push(""); //Добавление пустого значения в массив всех выборов
+    chooses.push(""); //Добавление пустого значения в массив URL-частей
+    setPage(page + 1); //Вызов следующей страницы
+    setAnimationID("fadeLeft"); //Анимация, с которой вызвать следующую страницу
   }
 
+  //Функция пропуска двух страниц
   function doubleSkip(e){
     e.preventDefault();
     urls.push("");
     chooses.push("");
     setPage(page + 2);
+    setAnimationID("fadeLeft");
   }
 
+  //Функция отпраки готового URL в консоль
   function send(e){
     e.preventDefault();
     console.log("URL: " + document.location.href);
   }
 
-
+  //Вызов страницы в зависимости от текущего id
   switch (page) {
     case 0:{
       return (

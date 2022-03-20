@@ -3,6 +3,7 @@ import HeaderProgressMenu from "../../components/HeaderProgressMenu/headerProgre
 import ChooseTextItem from '../../components/ChooseTextItem/chooseTextItem';
 import './seventhPage.scss';
 
+//7 страница с выбором формы оправы
 export default class seventhPage extends Component {
     render() {
         return (

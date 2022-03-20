@@ -2,6 +2,7 @@ import React from 'react';
 import {Logo, AngleRight, Close} from '../../assets/icons';
 import "./headerStart.scss";
 
+//Компонент навигационного меню для начальной и конечной страницы проекта
 function headerStartMenu(props) {
   return (
     <div className="headerStartMenu">

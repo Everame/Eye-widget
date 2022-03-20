@@ -2,36 +2,44 @@ import React from 'react';
 import ChooseItem from '../ChooseItem/chooseItem';
 import "./slider.scss";
 
+//Компонент слайдера с поддержкой touch-устройств
 function slider(props) {
 
-    let isDragging = false,
-        startPos = 0,
-        currentTranslate = 0,
-        prevTranslate = 0,
-        animationID = 0;
+    let isDragging = false, //состояние события перетягивания
+        startPos = 0, //начальная позиция события перетягивания
+        currentTranslate = 0, //расстояние на которое было совершено перетягивание
+        prevTranslate = 0, //предыдущее расстояние перетягивания
+        animationID = 0; //id текущей анимации
 
+    //Алгоритм действий при нажатии на слайдер
     function touchStart(event){
         const sliderLayer = document.querySelector('.sliderLayer');
-        startPos = getPositionX(event);
-        isDragging = true;
+        startPos = getPositionX(event); //присваивание текущей начальной позиции
+        isDragging = true; //изменение состояния события перетягивания
 
+        //изменение внешнего вида курсора
         sliderLayer.classList.add('grabbing');
         sliderLayer.classList.remove('grab');
     }
 
+    //Алгоритм действий при отпускании кнопки мыши со слайдера
     function touchEnd(){
         const sliderWrapper = document.querySelector('.sliderWrapper');
         const sliderItem = document.querySelector('.sliderRow a');
         const sliderLayer = document.querySelector('.sliderLayer');
-        isDragging = false;
-        cancelAnimationFrame(animationID);
-        const sliderRowWidth = (sliderItem.clientWidth * 4) + 40;
-        var lowLimit = 0;
+        isDragging = false; //изменение состояния события перетягивания
+        cancelAnimationFrame(animationID); //отмена анимации по id
+        const sliderRowWidth = (sliderItem.clientWidth * 4) + 40; //Ширина контейнера со всеми элементами слайдера
+        var lowLimit = 0; //Нижняя граница для свойства translate()
+
+        //Изменение значения нижней границы в зависимости от ширины контейнера со всеми элементами
         if(sliderRowWidth > sliderWrapper.clientWidth){
             lowLimit = sliderWrapper.clientWidth - (sliderRowWidth + 20);
         } else if(sliderRowWidth < sliderWrapper.clientWidth){
             lowLimit = 0;
         }
+
+        //Возвращение элементов слайдера к границам общего контейнера при их нарушении
         if(currentTranslate > 0){
             currentTranslate = 0;
             setSliderPosition()
@@ -39,41 +47,51 @@ function slider(props) {
             currentTranslate = lowLimit;
             setSliderPosition()
         }
-        prevTranslate = currentTranslate;
+        prevTranslate = currentTranslate; //Обновление расстояния предыдущего перетягивания 
 
+        //изменение внешнего вида курсора и видимости внешнего слоя
         sliderLayer.classList.remove('grabbing');
         sliderLayer.classList.add('grab');
         sliderLayer.classList.remove('show');
         sliderLayer.classList.add('hide');
     }
 
+    //Алгоритм действий перетягивании слайдера
     function touchMove(event){
-        if(isDragging){
+        if(isDragging){ //Проверка стаутса перетягивания
             const sliderWrapper = document.querySelector('.sliderWrapper');
             const sliderLayer = document.querySelector('.sliderLayer');
             const sliderItem = document.querySelector('.sliderRow a');
-            const sliderRowWidth = (sliderItem.clientWidth * 4) + 40;
-            var lowLimit = 0;
+            const sliderRowWidth = (sliderItem.clientWidth * 4) + 40; //Ширина контейнера со всеми элементами слайдера
+            var lowLimit = 0; //Нижняя граница для свойства translate()
+
+            //Изменение значения нижней границы в зависимости от ширины контейнера со всеми элементами
             if(sliderRowWidth > sliderWrapper.clientWidth){
                 lowLimit = sliderWrapper.clientWidth - (sliderRowWidth + 20);
             } else if(sliderRowWidth < sliderWrapper.clientWidth){
                 lowLimit = 0;
             }
+
+            //Прекращение translateX() при нарушении границ на 10px 
             if(currentTranslate > (lowLimit - 10) && currentTranslate <= 10){
                 const currentPosition = getPositionX(event);
                 currentTranslate = prevTranslate + currentPosition - startPos;
             }
-            animationID = requestAnimationFrame(animation);
+            animationID = requestAnimationFrame(animation); //Обновление текущего id анимации
+
+            //изменение видимости внешнего слоя
             sliderLayer.classList.remove('hide');
             sliderLayer.classList.add('show');
         }
     }
 
+    //Функция определения текущей позиции мыши
     function getPositionX(event){
         return event.type.includes('mouse') ? event.pageX : 
             event.touches[0].clientX;
     }
 
+    //Функция обновления анимации
     function animation(){
         if(isDragging){
             setSliderPosition();
@@ -81,10 +99,12 @@ function slider(props) {
         }
     }
 
+    //Функция изменения свойства translate у контейнера с элементами слайдера
     function setSliderPosition(){
         const sliderRow = document.querySelector('.sliderRow');
         sliderRow.style.transform = `translate(${currentTranslate}px)`;
     }
+
   return (
     <div className="sliderWrapper" onTouchStart={touchStart} onTouchEnd={touchEnd} onTouchMove={touchMove} onMouseDown={touchStart} onMouseMove={touchMove} onMouseUp={touchEnd} onMouseLeave={touchEnd}>
         <div className="sliderRow">
