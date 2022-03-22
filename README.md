@@ -11,3 +11,9 @@
 
 # Предпросмотр
 
+<img src="/previews/mainScreen.jpg"> <img src="/previews/fourScreen.jpg"> 
+<img src="/previews/sliderScreen.jpg"> <img src="/previews/finishScreen.jpg">
+
+# Как установить виджет?
+
+ 1. Скачать ZIP-архив проекта 
