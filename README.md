@@ -16,7 +16,7 @@
 
 # Как установить виджет?
 
- 1. Скачать ZIP-архив проекта или скачать **[release version](https://disk.yandex.ru/d/Aw7m3SyqmGFAWQ)**
+ 1. Скачать ZIP-архив проекта или скачать **[release version](https://disk.yandex.ru/d/R26vjBlMyNTz5Q)**
  2. Папку Eye-widget@0.1.0 переместить в кореневую папку сайта
  3. Подключить css и js файлы из папки Eye-widget@0.1.0
  4. Добавить элемент html-разметки с атрибутами 'id="glasses-quiz-widget" data-source="[URL-адрес страницы, на которой размещается виджет]"' для интеграции виджета
