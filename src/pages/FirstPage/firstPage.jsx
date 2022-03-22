@@ -13,7 +13,7 @@ export default class firstPage extends Component {
             <h3>You are looking for</h3>
             <ChooseItem url={"gender=5"} value={5} next={this.props.next} icon={Women} title="Women's Styles" testID={"Women"}/>
             <ChooseItem url={"gender=4"} value={4} next={this.props.next} icon={Men} title="Men's Styles" testID={"Men"}/>
-            <a href="" className="skipLink" onClick={this.props.skip}>I'd like to see both</a>
+            <a href="/" className="skipLink" onClick={this.props.skip}>I'd like to see both</a>
         </div>
     )
   }

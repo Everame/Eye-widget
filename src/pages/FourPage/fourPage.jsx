@@ -71,7 +71,7 @@ export default class thirdPage extends Component {
                             </div>
                         </a>
                     </div>
-                    <a href="" className="skipLink" onClick={this.setIsKnown.bind(this)} data-testid="idkBtn">I don’t know</a>
+                    <a href="/" className="skipLink" onClick={this.setIsKnown.bind(this)} data-testid="idkBtn">I don’t know</a>
                 </div>
             )
         }else{
@@ -84,7 +84,7 @@ export default class thirdPage extends Component {
                         <ChooseTextItem url={"frame_size=67"} value={67} next={this.props.next} title="Average" testID="secondScreenBtn"/>
                         <ChooseTextItem url={"frame_size=68"} value={68} next={this.props.next} title="Narrower Than Average" testID="secondScreenBtn"/>
                     </div>
-                    <a href="" className="skipLink" onClick={this.props.skip}>I’m not sure</a>
+                    <a href="/" className="skipLink" onClick={this.props.skip}>I’m not sure</a>
                     <div className="loadLayer fadeUp">
                         <AlertImg icon={Like} animation="loading" />
                         <h2>No worries, we’ve got you!</h2>

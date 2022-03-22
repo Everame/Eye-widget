@@ -20,7 +20,7 @@ export default class fifthPage extends Component {
                     </div>
                 </div>
             )
-        }else{ //Отображение страницы, если на 2 странице выбрали eyeglasses
+        }else{ //Отображение страницы, если на 2 странице выбрали eyeglasses или пропустили вопрос
             return (
                 <div className={`page fifth ${this.props.animation === "fadeLeft" ? "fadeLeft":"fadeRight"}`} data-testid="eyeDef">
                     <HeaderProgressMenu page={5} startUrl={this.props.url} prev={this.props.prev} reset={this.props.reset}/>

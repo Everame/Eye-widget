@@ -15,7 +15,7 @@ export default class seventhPage extends Component {
                     <ChooseTextItem url={"facial_features=rounded"} value={"rounded"} next={this.props.next} title="Rounded"/>
                     <ChooseTextItem url={"facial_features=between"} value={"between"} next={this.props.next} title="In between"/>
                 </div>
-                <a href="" className="skipLink" onClick={this.props.skip}>I don’t know</a>
+                <a href="/" className="skipLink" onClick={this.props.skip}>I don’t know</a>
             </div>
         )
     }

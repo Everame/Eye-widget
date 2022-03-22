@@ -11,6 +11,16 @@ function slider(props) {
         prevTranslate = 0, //предыдущее расстояние перетягивания
         animationID = 0; //id текущей анимации
 
+    //Функция обеспечивающая адаптивность слайдера при уменьшении ширины родительского блока
+    function adaptive(){
+        const mainCont = document.getElementById('glasses-quiz-widget');
+        const sliderRow = document.querySelector('.sliderRow');
+
+        if(mainCont.clientWidth < 1000){ //Если ширина родительского контейнера меньше 1000, то меняем ориентирование слайдера на "от левого края"
+            sliderRow.style.justifyContent = "flex-start";
+        }
+    }
+
     //Алгоритм действий при нажатии на слайдер
     function touchStart(event){
         const sliderLayer = document.querySelector('.sliderLayer');
@@ -106,7 +116,7 @@ function slider(props) {
     }
 
   return (
-    <div className="sliderWrapper" onTouchStart={touchStart} onTouchEnd={touchEnd} onTouchMove={touchMove} onMouseDown={touchStart} onMouseMove={touchMove} onMouseUp={touchEnd} onMouseLeave={touchEnd}>
+    <div className="sliderWrapper" onLoad={adaptive} onTouchStart={touchStart} onTouchEnd={touchEnd} onTouchMove={touchMove} onMouseDown={touchStart} onMouseMove={touchMove} onMouseUp={touchEnd} onMouseLeave={touchEnd}>
         <div className="sliderRow">
             {
                 props.items.map((item, index) => {

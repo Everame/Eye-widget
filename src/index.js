@@ -7,6 +7,7 @@ import './assets/fonts/OpenSans/opensans.css';
 import './assets/fonts/Roboto/roboto.css';
 import App from './App';
 
+
 ReactDOM.render(
   <React.StrictMode>
       <App url={document.getElementById('glasses-quiz-widget').getAttribute('data-source')} />

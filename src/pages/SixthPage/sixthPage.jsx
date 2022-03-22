@@ -19,7 +19,7 @@ export default class sixthPage extends Component {
                 <ChooseItemDouble  url={"face_shape=between"} value={"between"} next={this.props.next} icon={this.props.prevValue === "5" ? BetweenWomen: this.props.prevValue === "4" ? BetweenMen: FacesBoth} title="In between"/>
             </div>
 
-            <a href="" className="skipLink" onClick={this.props.skip}>I don’t know</a>
+            <a href="/" className="skipLink" onClick={this.props.skip}>I don’t know</a>
         </div>
     )
   }

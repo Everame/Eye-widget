@@ -148,18 +148,10 @@ h3{
   width: 80%;
 }
 
-#root{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 #glasses-quiz-widget{
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 

@@ -21,7 +21,7 @@ export default class secondPage extends Component {
             :
             <ChooseItem url={"eyewear_type=211"} value={211} next={this.props.next} icon={SunglassesMen} title="Sunglasses" testID={"MenSun"}/>
             }
-            <a href="" className="skipLink" onClick={this.props.skip}>I want to see both</a>
+            <a href="/" className="skipLink" onClick={this.props.skip}>I want to see both</a>
         </div>
     )
   }

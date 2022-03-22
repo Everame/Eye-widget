@@ -27,6 +27,7 @@ function App(props) {
     setChooses([]);
     setUrls([]);
     setPage(0);
+    console.clear();
   }
   
   //Функция сброса параметров по нажатии
@@ -41,6 +42,7 @@ function App(props) {
     setChooses([]);
     setUrls([]);
     setPage(0);
+    console.clear();
   }
 
   //Функция переключения экрана
