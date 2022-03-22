@@ -11,4 +11,3 @@
 
 # Предпросмотр
 
-<img src="/previews/mainScreen.jpg">
